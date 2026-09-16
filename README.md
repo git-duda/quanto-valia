@@ -16,21 +16,21 @@ React 19, TypeScript, Vite 6, Tailwind CSS 4, Recharts e Lucide.
 
 ## Desenvolvimento
 
-Requisitos: Node.js 22 e Bun.
+Requisitos: Node.js 22 e npm.
 
 ```bash
 git clone https://github.com/git-duda/quanto-valia.git
 cd quanto-valia
-bun install --frozen-lockfile
-bun run dev
+npm ci
+npm run dev
 ```
 
 Abra http://localhost:3000.
 
 ```bash
-bun run typecheck
-bun run build
-bun run preview
+npm run typecheck
+npm run build
+npm run preview
 ```
 
 O build gera arquivos estáticos na pasta `dist/`.
