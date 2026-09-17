@@ -3,6 +3,7 @@ import { PRESET_ITEMS } from '../data/presets';
 import { HISTORICAL_DATA } from '../data/historicalData';
 import { DIEESE_DATABASE, findDieeseMatches, DieeseItem } from '../data/dieeseDatabase';
 import { PresetItem } from '../types';
+import { PriceInput } from './PriceInput';
 import { 
   ArrowRightLeft, 
   Sparkles, 
@@ -453,13 +454,11 @@ export const CalculatorForm: React.FC<CalculatorFormProps> = ({
                 <span className="absolute left-3 top-3 text-slate-500 font-bold text-xs font-mono">
                   R$
                 </span>
-                <input
+                <PriceInput
                   id="base-price-input"
-                  type="number"
-                  step="0.01"
-                  min="0.01"
+                  aria-label="Preço no ano base"
                   value={basePrice}
-                  onChange={(e) => selectedPresetId === 'custom' && setBasePrice(Math.max(0, Number(e.target.value)))}
+                  onValueChange={(price) => selectedPresetId === 'custom' && setBasePrice(price)}
                   readOnly={selectedPresetId !== 'custom'}
                   disabled={selectedPresetId !== 'custom'}
                   className={`w-full pl-9 py-3 rounded-xl border-2 font-black font-mono text-sm transition-all shadow-xs ${
@@ -534,13 +533,11 @@ export const CalculatorForm: React.FC<CalculatorFormProps> = ({
                 <span className="absolute left-3 top-3 text-slate-500 font-bold text-xs font-mono">
                   R$
                 </span>
-                <input
+                <PriceInput
                   id="target-price-input"
-                  type="number"
-                  step="0.01"
-                  min="0.01"
+                  aria-label="Preço no ano de comparação"
                   value={targetPrice}
-                  onChange={(e) => selectedPresetId === 'custom' && setTargetPrice(Math.max(0, Number(e.target.value)))}
+                  onValueChange={(price) => selectedPresetId === 'custom' && setTargetPrice(price)}
                   readOnly={selectedPresetId !== 'custom'}
                   disabled={selectedPresetId !== 'custom'}
                   className={`w-full pl-9 py-3 rounded-xl border-2 font-black font-mono text-sm transition-all shadow-xs ${
